@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
   
   <title>Frontend Mentor | Expenses chart component</title>
 
@@ -20,18 +21,18 @@
       <header class="component-header">
         <div class="balance-wrapper">
           <p>My balance</p>
-          <p class="fs-large">$921.48</p>
+          <p class="fs-large fw-bold">$921.48</p>
         </div>
         <div class="logo">
           <img src="images/logo.svg" alt="expenses-chart logo dark circle with white border that is offset to the left">
         </div>
       </header>
       <div class="expenses-chart-wrapper">
-        <p class="fs-large">Spending - Last 7 days</p>
+        <p class="fs-large fc-dark-brown fw-bold">Spending - Last 7 days</p>
         <div class="chart">
           <div class="chart-column">
             <div class="expenses-day-wrapper">
-              <p class="expenses-day"></p>
+              <p class="expenses-day fw-bold"></p>
             </div>
             <div class="expenses-column-wrapper">
               <div class="expenses-column"></div>
@@ -93,18 +94,18 @@
             <p class="day-of-the-week"></p>
           </div>
         </div>
-        <script href="script.js"></script>
         <hr>
         <div class="expenses-overview">
           <div class="expenses-month-wrapper">
             <p>Total this month</p>
-            <p class="expenses-month">$478.33</p>
+            <p class="fs-huge fc-dark-brown fw-bold">$478.33</p>
           </div>
           <div class="expenses-comparison">
-            <p>+2.4%</p>
+            <p class="fc-dark-brown fw-bold">+2.4%</p>
             <p>from last month</p>
           </div>
         </div>
+        <script href="script.js"></script>
       </div>
     </div>
     <div class="attribution">
