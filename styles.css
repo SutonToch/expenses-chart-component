@@ -117,12 +117,15 @@ hr {
 }
 
 .expenses-day-wrapper {
-    /* background-color: var(--clr-neutral-dark-brown); */
     background-color: var(--clr-neutral-very-pale-orange);
     border-radius: var(--br-small);
     color: var(--clr-neutral-very-pale-orange);
     padding: var(--spc-small);
     margin-bottom: var(--spc-small);
+}
+
+.expenses-day-wrapper-show {
+    background-color: var(--clr-neutral-dark-brown);
 }
 
 .expenses-column-wrapper {
