@@ -161,6 +161,19 @@ hr {
     margin-bottom: 8px;
 }
 
+@media only screen and (max-width: 600px) {
+    :root {
+        --fs-large: 24px;
+        --fs-huge: 27px;
+        --spc-large: 24px;
+        --br-normal: 10px;
+    }
+
+    .expenses-chart-component {
+        min-width: 300px;
+    }
+}
+
 /* 
 - Mobile: 375px
 - Desktop: 1440px
