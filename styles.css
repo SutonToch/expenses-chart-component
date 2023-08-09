@@ -135,7 +135,6 @@ hr {
 }
 
 .expenses-column {
-    /* height: 100px; */
     width: 70%;
     background-color: var(--clr-primary-soft-red);
     border-radius: var(--br-small);
@@ -175,9 +174,8 @@ hr {
     .expenses-chart-component {
         min-width: 300px;
     }
-}
 
-/* 
-- Mobile: 375px
-- Desktop: 1440px
-*/
+    .chart-column {
+        width: 40px;
+    }
+}
