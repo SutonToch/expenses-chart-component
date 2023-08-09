@@ -31,6 +31,7 @@ const data = [
 const expensesDays = document.querySelectorAll(".expenses-day")
 const expensesColumns = document.querySelectorAll(".expenses-column")
 const dayOfTheWeeks = document.querySelectorAll(".day-of-the-week")
+const today = adjustedToday(new Date(Date()).getDay())
 
 render()
 
@@ -46,8 +47,8 @@ function render() {
     columnHeight = (Number(data[i].amount)/highestAmount)*100
     expensesColumns[i].style.height = columnHeight + "px"
 
-    //make biggest column cyan
-    if(Number(data[i].amount) == highestAmount) {
+    //make today's column cyan
+    if(i == today) {
       expensesColumns[i].classList.add("expenses-column-highest-expense")
     }
 
@@ -70,4 +71,12 @@ function getHighestAmount(data) {
     }
   }
   return highestAmount
+}
+
+function adjustedToday(dayOfTheWeek) {
+  if(dayOfTheWeek == 0) {
+    return 6
+  } else {
+    return dayOfTheWeek-1
+  }
 }
