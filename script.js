@@ -27,33 +27,31 @@ const data = [
   {
     "day": "sun",
     "amount": 25.48
-  }];
+  }]
 const expensesDays = document.querySelectorAll(".expenses-day")
 const expensesColumns = document.querySelectorAll(".expenses-column")
 const dayOfTheWeeks = document.querySelectorAll(".day-of-the-week")
 
-initialize()
-
-function initialize() {
-  localStorage.setItem("data", JSON.stringify(data)) //this way I can later dynamically alter data
-  render()
-}
+render()
 
 function render() {
-  const data = JSON.parse(localStorage.getItem("data"))
   const highestAmount = getHighestAmount(data)
   let columnHeight = 0
+
   for(let i=0; i<7; i++) {
+    //fill chart with provided data
     dayOfTheWeeks[i].textContent = data[i].day
     expensesDays[i].textContent = "$" + data[i].amount
 
     columnHeight = (Number(data[i].amount)/highestAmount)*100
     expensesColumns[i].style.height = columnHeight + "px"
 
+    //make biggest column cyan
     if(Number(data[i].amount) == highestAmount) {
       expensesColumns[i].classList.add("expenses-column-highest-expense")
     }
 
+    //event listeners to show/hide brown box above columns
     expensesColumns[i].addEventListener("mouseover", (event) => {
       event.target.closest(".chart-column").children[0].classList.add("expenses-day-wrapper-show")
     })
@@ -71,6 +69,5 @@ function getHighestAmount(data) {
       highestAmount = Number(data[i].amount)
     }
   }
-
   return highestAmount
 }
