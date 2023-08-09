@@ -28,15 +28,49 @@ const data = [
     "day": "sun",
     "amount": 25.48
   }];
+const expensesDays = document.querySelectorAll(".expenses-day")
+const expensesColumns = document.querySelectorAll(".expenses-column")
+const dayOfTheWeeks = document.querySelectorAll(".day-of-the-week")
 
-//put data into localStorage
-//query all expenses-day
-//query all expenses-column
-//query all day-of-the-week
+initialize()
 
-//render data from localStorage 
-//where the expenses-column height is relative to it's expense
+function initialize() {
+  localStorage.setItem("data", JSON.stringify(data)) //this way I can later dynamically alter data
+  render()
+}
 
-//add .expenses-column-highest-expense to column with highest expense
+function render() {
+  const data = JSON.parse(localStorage.getItem("data"))
+  const highestAmount = getHighestAmount(data)
+  let columnHeight = 0
+  for(let i=0; i<7; i++) {
+    dayOfTheWeeks[i].textContent = data[i].day
+    expensesDays[i].textContent = "$" + data[i].amount
 
-//add .expenses-day-wrapper-show to .expenses-day-wrapper IF that column is hovered
+    columnHeight = (Number(data[i].amount)/highestAmount)*100
+    expensesColumns[i].style.height = columnHeight + "px"
+
+    if(Number(data[i].amount) == highestAmount) {
+      expensesColumns[i].classList.add("expenses-column-highest-expense")
+    }
+
+    expensesColumns[i].addEventListener("mouseover", (event) => {
+      event.target.closest(".chart-column").children[0].classList.add("expenses-day-wrapper-show")
+    })
+    expensesColumns[i].addEventListener("mouseout", (event) => {
+      event.target.closest(".chart-column").children[0].classList.remove("expenses-day-wrapper-show")
+    })
+  }
+}
+
+function getHighestAmount(data) {
+  let highestAmount = 0
+
+  for(let i=0; i<data.length; i++) {
+    if(Number(data[i].amount) > highestAmount) {
+      highestAmount = Number(data[i].amount)
+    }
+  }
+
+  return highestAmount
+}
